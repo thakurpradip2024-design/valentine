@@ -14,6 +14,7 @@
       display: flex;
       justify-content: center;
       padding: 20px 0;
+      color: #333;
     }
 
     .card {
@@ -37,13 +38,11 @@
       margin: 12px 0;
     }
 
-    /* PHOTO GALLERY */
     .gallery {
       display: flex;
       gap: 10px;
       overflow-x: auto;
       margin: 15px 0;
-      padding-bottom: 5px;
     }
 
     .gallery img {
@@ -87,19 +86,18 @@
 
 <body>
 
-  <!-- BACKGROUND MUSIC (plays after YES) -->
-  <audio id="bgMusic" src="videoplayback.weba"></audio>
+  <!-- AUDIO (plays after YES) -->
+  <audio id="bgMusic" src="videoplayback.mp3" preload="auto" playsinline></audio>
 
-  <div class="card">
+  <div class="card" id="mainCard">
 
     <h1>Hey Jeeva ❤️</h1>
 
     <p>
       From the moment you became part of my life,  
-      everything started feeling a little brighter ✨
+      everything started feeling warmer and brighter ✨
     </p>
 
-    <!-- PHOTO GALLERY -->
     <div class="gallery">
       <img src="photo.jpg">
       <img src="photo1.jpg">
@@ -112,7 +110,7 @@
     </p>
 
     <p>
-      So here’s something I’ve been wanting to ask you…
+      So here’s something straight from my heart…
     </p>
 
     <h1>Will you be my Valentine? 💖</h1>
@@ -133,16 +131,24 @@
 
     function yesClicked() {
       const music = document.getElementById("bgMusic");
-      music.play();
+      music.currentTime = 0;
+      music.volume = 0.9;
+      music.play().catch(() => {});
 
-      document.body.innerHTML = `
-        <div style="text-align:center;color:white;padding-top:35vh;">
-          <h1>Yayyy ❤️🥰</h1>
-          <p style="font-size:18px;">
-            Jeeva, you just made my heart smile 💖<br>
-            I’ll remember this forever.
-          </p>
-        </div>
+      document.getElementById("mainCard").innerHTML = `
+        <h1>Yayyy ❤️🥰</h1>
+        <p style="font-size:16px;">
+          Jeeva, you have no idea how special this moment is for me.
+        </p>
+        <p style="font-size:16px;">
+          Every night i want to spend with no matter how many beds we broke we will do on floor if required  💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦      </p>
+        <p style="font-size:16px;">
+          I don’t need perfect places or perfect moments —  
+          I just need <b>you</b>. 💖
+        </p>
+        <p style="font-size:17px;">
+          Thank you for being you ❤️
+        </p>
       `;
     }
   </script>
